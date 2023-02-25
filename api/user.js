@@ -2,7 +2,7 @@
 const users = db('users');
 
 ({
-  read(id) {
+  async read(id) {
     return users.read(id, ['id', 'login']);
   },
 
@@ -16,11 +16,11 @@ const users = db('users');
     return users.update(id, { login, password: passwordHash });
   },
 
-  delete(id) {
+  async delete(id) {
     return users.delete(id);
   },
 
-  find(mask) {
+  async find(mask) {
     const sql = 'SELECT login from users where login like $1';
     return users.query(sql, [mask]);
   },
