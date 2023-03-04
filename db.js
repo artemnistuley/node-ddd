@@ -2,7 +2,13 @@
 
 const pg = require('pg');
 
-const crud = (pool) => (table) => ({
+let pool = null;
+
+const init = (options) => {
+  pool = new pg.Pool(options);
+};
+
+const crud = (table) => ({
   async query(sql, args) {
     const result = await pool.query(sql, args);
     return result.rows;
@@ -51,4 +57,4 @@ const crud = (pool) => (table) => ({
   },
 });
 
-module.exports = (options) => crud(new pg.Pool(options));
+module.exports = { init, crud };
