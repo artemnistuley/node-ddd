@@ -1,7 +1,7 @@
 'use strict';
 
 const http = require('node:http');
-const receiveArgs = require('../body.js');
+const receiveArgs = require('../lib/body.js');
 
 const HEADERS = {
   'X-XSS-Protection': '1; mode=block',
