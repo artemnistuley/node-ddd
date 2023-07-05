@@ -20,8 +20,8 @@ module.exports = (routing, port, console) => {
       try {
         const result = await handler(...args);
         connection.send(JSON.stringify(result), { binary: false });
-      } catch (e) {
-        console.error({ e });
+      } catch (err) {
+        console.error(err);
         connection.send('"Server error"', { binary: false });
       }
     });
