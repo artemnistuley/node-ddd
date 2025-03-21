@@ -1,0 +1,11 @@
+{
+  "name": "node-ddd-example",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "ws": "^8.12.0"
+  }
+}

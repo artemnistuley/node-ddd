@@ -1,0 +1,5 @@
+node_modules/
+haters/
+*.log
+.DS_Store
+.idea
