@@ -57,7 +57,7 @@ const scaffold = (url) => {
 };
 
 (async () => {
-  const api = await scaffold('http://localhost:8001')({
+  const api = await scaffold('ws://localhost:8001')({
     auth: {
       signin: ['login', 'password'],
       signout: [],
@@ -68,14 +68,7 @@ const scaffold = (url) => {
     },
   });
 
-  const authData = await api.auth.signin({
-    login: 'admin',
-    password: 'admin',
-  });
-
-  const messengerData = await api.messenger.method({
-    arg: 'some arg',
-  });
-  
-  console.dir({ authData, messengerData });
+  const authData = await api.auth.signin({ login: 'admin', password: 'admin' });
+  const messengerData = await api.messenger.method({ arg: 'test arg' });
+  console.log({ authData, messengerData });
 })();
