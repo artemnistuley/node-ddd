@@ -25,6 +25,8 @@ const routing = {};
     const filePath = path.join(apiPath, fileName);
     const serviceName = path.basename(fileName, '.js');
     routing[serviceName] = require(filePath);
+    // Or custom loader can be used here, but for this 
+    // the modules inside "./api" folder should be changed.
     // routing[serviceName] = await load(filePath, sandbox);
   }
 
